@@ -1,34 +1,38 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import MyCard from './MyCard';
 
 function Home() {
-  return <h2>🏠 Welcome to the Home Page!</h2>;
+  return <h2>Welcome to the Home Page!</h2>;
 }
 
 function About() {
-  return <h2>📖 This is the About Page.</h2>;
+  return <h2>This is the About Page.</h2>;
 }
 
-function App() {
+function App(props) {
   return (
-    <Router>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand as={Link} to="/">My Vite Site</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/about">About</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <MyCard bgColor="bg-info" foreColor="text-white" />
+          <MyCard />
+          <MyCard />
+          <MyCard bgColor="bg-primary" foreColor="text-white" />
+          <MyCard />
+          <MyCard />
+        </div>
+        <div class="col">
+          <MyCard bgColor="bg-info" foreColor="text-white" />
+          <MyCard />
+          <MyCard />
+          <MyCard bgColor="bg-primary" foreColor="text-white" />
+          <MyCard />
+          <MyCard />
+        </div>
+      </div>
 
-      <Container className="mt-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Container>
-    </Router>
+    </div>    
   );
 }
 
